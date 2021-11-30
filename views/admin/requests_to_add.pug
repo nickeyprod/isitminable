@@ -1,0 +1,31 @@
+extends ./../layout
+
+block head 
+  link(href="/css/main.css" rel="stylesheet")
+  link(href="/css/admin/requests_to_add.css" rel="stylesheet")
+  script(src="/js/index.js")
+  script(src="/js/admin/requests_to_add.js")
+
+
+block content
+  .main-content
+    h2 Запросы на добавление проектов
+    .minable-list
+      .minable-project.head
+        .p-name Название
+        .p-algo Тикер
+        .p-desc Ссылка
+        .p-del  Действие
+      br
+      .search-results#s-rs
+        each request in requests 
+          .minable-project
+            div=request.name
+            div=request.ticker
+            div=request.link 
+            div(style="display: flex; justify-content: end;")
+              button(onclick=`removeRequest('${request._id}', this.parentElement.parentElement, '${request.name}')`) Удалить
+        else 
+          .minable-project
+            div(style="font-size: 1.2em;") Нет запросов
+      

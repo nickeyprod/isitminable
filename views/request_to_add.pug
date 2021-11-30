@@ -1,0 +1,19 @@
+extends ./layout
+
+block head 
+  link(href="/css/main.css" rel="stylesheet")
+  link(href="/css/request_to_add.css" rel="stylesheet")
+  script(src="/js/index.js")
+  script(src="/js/request_to_add.js")
+
+block content
+  .main-content
+    h2 Запрос на добавление проекта
+    .request-form 
+      label(for="name") Укажите название проекта:
+      input#p-name(type="text" name="name" placeholder="Например, Bitcoin")
+      label(for="ticker") Укажите тикер проекта:
+      input#p-ticker(type="text" name="ticker" placeholder="BTC, ETH ..") 
+      label(for="link") Укажите сайт проекта:
+      input#p-link(type="text" name="link" placeholder="https:// ..")
+      button#send-button Отправить запрос

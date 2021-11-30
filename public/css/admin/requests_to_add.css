@@ -1,0 +1,13 @@
+/* CSS for admin/requests_to_add.css */
+
+.requests-list {
+    width: 60%;
+    font-size: 1.2em;
+    margin-top: 16px;
+} 
+
+.request {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}

@@ -1,0 +1,28 @@
+extends ../layout
+
+block head
+  link(href="/css/main.css" rel="stylesheet")
+  link(href="/css/instructions.css" rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet")
+
+block content
+    .mining-instructions
+      img(src="/imgs/Microbitcoin_MBC.png")
+      h2.mining-header Майнинг Microbitcoin 
+      p Иструкции взяты с 
+        a(href="https://microbitcoin.org/page/mining" target="_blank") официального сайта.
+      p Microbitcoin майнинг происходит на процессоре вашего компьютера (CPU-Mining).
+      p 1. Прежде всего, вам нужно сгенерировать себе Microbitcoin адрес, используя 
+        a(href="/https://microbitcoinorg.github.io/paper/") бумажный кошелек. 
+      p 2. После генерации адреса, удостоверьтесь что вы сохранили приватный ключ (Private Key) в надежном месте, так как восстановить его невозможно. Никогда и ни с кем не делитесь этим ключом. (Кто имеет приватный ключ - тот владеет криптовалютой!)
+      p Используйте 
+        a(href="https://github.com/MicroBitcoinOrg/Cpuminer/releases/tag/1.0.0" target="_blank") cpuminer 
+        | для добычи Microbitcoin.
+      p 3. Скачайте версию <i>cpuminer</i>, подходящую для вашей операционной системы, после чего запустите майнер с помощью командной строки командой:
+      
+      .code
+        span ./cpuminer.exe -a power2b -o stratum+tcp://POOL_ADRESS:PORT -u YOUR_ADDRESS -p -t1
+
+      p Где, 
+      p POOL_ADRESS - адрес майнинг пула, если вы будете майнить в пуле; 
+      p YOUR_ADDRESS - ваш Microbitcoin адрес, сгенерированный в 1 шаге;

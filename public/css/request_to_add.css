@@ -1,0 +1,25 @@
+/* CSS for request_to_add.pug */
+
+.request-form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    font-size: 1.2em;
+}
+
+.request-form label {
+    margin: 10px 0 4px;
+    font-weight: bold;
+}
+
+.request-form input {
+    padding: 6px 10px;
+    font-size: 1.1em;
+}
+
+.request-form button {
+    margin-top: 12px;
+    padding: 8px 10px;
+    width: fit-content;
+    font-size: 1em;
+}

@@ -1,0 +1,33 @@
+extends ./../layout
+
+block head 
+  link(href="/css/main.css" rel="stylesheet")
+  link(href="/css/admin/rm_hide_project.css", rel="stylesheet")
+  script(src="/js/index.js")
+  script(src="/js/admin/rm_hide_project.js")
+
+block content
+  .main-content
+    h2 Ред./Удалить/Спрятать проект
+    .minable-list
+      .minable-project.head
+        .p-name Название
+        .p-algo Тикер
+        .p-desc Настройки
+      br
+      each project in projects
+        .minable-project
+          .p-name
+            img(class="project-logo" src="/imgs/" + project.name + "_" + project.ticker + ".png") 
+            a(href=`/how-to-mine?coin=${project.name}` title=project.description)=project.name
+          .p-ticker=project.ticker
+          .p-settings
+            select(onchange=`changeVisibility('${project._id}', this.value, this)`).vis-opt#visibility
+              if project.hidden == true
+                option(value="1") Показывать
+                option(value="0" selected) Скрыть
+              else 
+                option(value="1" selected) Показывать
+                option(value="0") Скрыть
+            button.del-proj-btn(onclick=`removeProject('${project._id}', this.parentElement.parentElement, '${project.name}')`) Удалить
+            button.edit-proj-btn(onclick=`window.location.href='/panel/edit-project?id=${project._id}'`) Редактировать

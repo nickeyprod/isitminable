@@ -1,0 +1,17 @@
+extends ./../layout
+
+block head 
+  link(href="/css/main.css" rel="stylesheet")
+  link(href="/css/admin/panel.css" rel="stylesheet")
+
+block content
+  .main-content
+    h2 Панель управления
+
+    ul.panel-actions
+      li 
+        a(href="/panel/add-project") Добавить проект
+      li 
+        a(href="/panel/rm-hide-project") Ред./Удалить/Спрятать проект
+      li 
+        a(href="/panel/requests") Запросы на добавление проектов

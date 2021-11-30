@@ -1,0 +1,21 @@
+/* CSS for instructions */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+.mining-instructions {
+    width: 60%;
+    margin: 60px auto 140px;
+    font-size: 1.2em;
+    font-family: 'Play', sans-serif;
+}
+
+.mining-header {
+    color: rgb(44, 43, 43);
+}
+
+.code {
+    background-color: rgb(211, 203, 212);
+}

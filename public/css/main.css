@@ -1,0 +1,44 @@
+/* CSS for main.pug */
+
+.project-search {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.project-search > input {
+    padding: 8px 10px;
+    font-size: 1.2em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.project-search > label {
+    font-weight: bold;
+}
+
+.project-logo {
+    width: 21px;
+    height: 21px;
+    margin-right: 12px;
+}
+
+.minable-project {
+    font-size: 1.4em;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.minable-project.head div {
+    font-weight: bold;
+    background-color: #ececed;
+}
+
+.minable-project div {
+    display: inline-block;
+    background-color: rgb(250, 255, 240);
+    margin: 1px;
+    padding: 6px 20px;
+    box-sizing: border-box;
+    width: 100%;
+}
