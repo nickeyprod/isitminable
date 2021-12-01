@@ -4,8 +4,9 @@ const router = express.Router();
 const Project = require("../models/Project");
 const Request = require("../models/Request");
 
+const mid = require("../middleware/middleware");
 
-router.get('/', (req, res, next) => {
+router.get('/', mid.isAdmin, (req, res, next) => {
     Project.find().exec((err, projects) => {
         if (err) {
             console.log("Error during searching for projects");
