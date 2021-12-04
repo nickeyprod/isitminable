@@ -14,7 +14,21 @@ block content
       input(type="text" name="name" id="proj-name-inpt" value=project.name)
       label(for="name") Тикер:
       input(type="text" name="ticker" id="proj-ticker-inpt" value=project.ticker)
+      br
+      fieldset
+        legend Тип майнинга:
+        div
+          input(type="checkbox" id="vcard-inpt" name="vcard" value="vcard")
+          label(for="vcard") Video Card
+        div
+          input(type="checkbox" id="cpu-inpt" name="cpu" value="cpu")
+          label(for="cpu") CPU
+        div
+          input(type="checkbox" id="ssd-inpt" name="ssd" value="ssd")
+          label(for="ssd") SSD
       label(for="link") Сайт проекта:
       input(type="text" name="link" id="proj-link-inpt" value=project.link)
       input#proj-id-inpt(type="hidden" value=project._id) 
       button.add-proj-btn#save-proj-btn Сохранить
+  script.
+    const miningTypes = JSON.parse(`!{JSON.stringify(project.minable_via)}`);

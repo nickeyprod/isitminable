@@ -4,6 +4,22 @@ window.onload = () => {
     const projectTicker = document.getElementById("proj-ticker-inpt");
     const projectLink = document.getElementById("proj-link-inpt");
 
+    // mining type inputs
+    const vcard = document.getElementById("vcard-inpt");
+    const cpu = document.getElementById("cpu-inpt");
+    const ssd = document.getElementById("ssd-inpt");
+
+    const getMiningTypes = () => {
+        const miningTypeInpts = [ vcard, cpu, ssd ];
+        const miningTypes = [];
+        for (let i = 0; i < miningTypeInpts.length; i++) {
+            if (miningTypeInpts[i].checked) {
+                miningTypes.push(miningTypeInpts[i].value);
+            }
+        }
+        return miningTypes;
+    };
+
     addProjBtn.onclick = async () => {
         addProjBtn.setAttribute("disabled", "true");
 
@@ -15,12 +31,17 @@ window.onload = () => {
             addProjBtn.removeAttribute("disabled");
             window.alert("Поле 'Тикер' не может быть пустым");
             return;
+        } else if (getMiningTypes().length == 0) {
+            addProjBtn.removeAttribute("disabled");
+            window.alert("Не выбран 'Тип майнинга'");
+            return;
         }
 
         const newProjectData = {
             name: projectName.value,
             ticker: projectTicker.value,
-            link: projectLink.value
+            link: projectLink.value,
+            minable_via: getMiningTypes()
         };
 
         const resp = await fetchDataFrom("/panel/add-project", "POST", newProjectData);

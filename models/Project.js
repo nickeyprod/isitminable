@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 const ProjectSchema = new Schema({
   name:  { type: String, unique: true, required: true }, // String is shorthand for {type: String}
   ticker: { type: String, required: true },
+  minable_via: [ String ],
   link: { type: String},
   date: { type: Date, default: Date.now },
   hidden: { type: Boolean, default: false },

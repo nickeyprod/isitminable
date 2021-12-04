@@ -1,22 +1,26 @@
 extends ./layout
 
+
 block head 
   meta(name="description" content="Узнайте, что можно майнить всего за несколько минут. Список криптовалют для майнинга. Список криптовалют для майнинга. Поиск по монетам.")
   link(href="/css/main.css" rel="stylesheet")
   script(src="/js/index.js")
   script(src="/js/main.js")
 
+
 block content
   .main-content
+    - const trnsl = { "vcard": "Video Card", "cpu": "CPU", "ssd": "SSD" };
     .project-search 
       label(for="projectSearch") Поиск:
       span(style="float:right; font-weight:bold") Проектов в базе: #{projects.length}
       input#search-inpt(type="text" name="projectSearch" placeholder="Начните вводить название проекта или тикер")
     .minable-list
       .minable-project.head
-        .p-name Название
-        .p-algo Тикер
-        .p-link Сайт проекта
+        .p-name-h Название
+        .p-algo-h Тикер
+        .p-mtype-h Тип майнига
+        .p-link-h Сайт проекта
       br
       .search-results#s-rs
         each project in projects
@@ -26,6 +30,11 @@ block content
                 img(class="project-logo" src="/imgs/" + project.name + "_" + project.ticker + ".png") 
                 a(href=`/how-to-mine?coin=${project.name}` title=`Узнать как майнить ${project.name}`)=project.name
               .p-ticker=project.ticker
+              .p-mtype
+                each t in project.minable_via
+                  img(src=`/imgs/mining_types/${t}.png` alt=`${trnsl[t]} icon` title=`${trnsl[t]} Mining`)
+                else 
+                  span(title="Тип майнинга неизвестен") ??
               if project.link
                 .p-link 
                   a(href=project.link target="_blank")=project.link

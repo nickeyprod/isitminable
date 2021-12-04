@@ -6,7 +6,7 @@ const Request = require("../models/Request");
 
 const mid = require("../middleware/middleware");
 
-router.get('/', mid.isAdmin, (req, res, next) => {
+router.get('/', (req, res, next) => {
     Project.find().exec((err, projects) => {
         if (err) {
             console.log("Error during searching for projects");
@@ -22,15 +22,17 @@ router.get('/add-project', (req, res) => {
 
 router.post('/add-project', (req, res) => {
 
-    const { name, ticker, link } = req.body;
+    const { name, ticker, link, minable_via } = req.body;
 
     if (!name || name == "") {
         return res.send({result: "ERROR", message: "Project name is absent!"});
     } else if (!ticker || ticker == "") {
         return res.send({result: "ERROR", message: "Project ticker is absent!"});
+    } else if (!minable_via || minable_via.length == 0) {
+        return res.send({result: "ERROR", message: "Project mining types is absent!"});
     }
 
-    Project.create({name, ticker, link}, (err, projects) => {
+    Project.create({ name, ticker, link, minable_via }, (err, projects) => {
         if (err) {
             return res.send({result: "ERROR", message: err.message });
         }
@@ -57,15 +59,17 @@ router.get('/edit-project', (req, res, next) => {
 
 router.post('/edit-project', (req, res) => {
 
-    const { _id, name, ticker, link } = req.body;
+    const { _id, name, ticker, link, minable_via } = req.body;
 
     if (!name || name == "") {
         return res.send({result: "ERROR", message: "Project name is absent!"});
     } else if (!ticker || ticker == "") {
         return res.send({result: "ERROR", message: "Project ticker is absent!"});
+    } else if (!minable_via || minable_via.length == 0) {
+        return res.send({result: "ERROR", message: "Project mining types is absent!"});
     }
 
-    Project.updateOne({ _id }, {$set: { name, ticker, link }}, (err, project) => {
+    Project.updateOne({ _id }, {$set: { name, ticker, link, minable_via }}, (err, project) => {
         if (err) {
             return res.send({result: "ERROR", message: err.message });
         }
