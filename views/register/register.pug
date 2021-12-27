@@ -1,0 +1,24 @@
+extends ./../layout
+
+
+block head 
+  meta(name="description" content="Регистрация на сайте IsItMinable.com - Инструкции по майнингу криптовалют.")
+  link(href="/css/main.css" rel="stylesheet")
+  link(href="/css/register/register.css" rel="stylesheet")
+  script(src="/js/index.js")
+  script(src="/js/register/register.js")
+
+
+block content
+  .main-content
+    h2 Регистрация на сайте
+    .register-fields
+      label(for="nickname") Никнейм:
+      input(id="nickname-inpt" type="text" name="nickname" placeholder="Введите ваш никнейм")
+      label(for="email") Email:
+      input(id="email-inpt" type="text" name="email" placeholder="Введите ваш email-адрес")
+      label(for="password") Пароль:
+      input(id="password-inpt" type="text" name="password" placeholder="Придумайте себе пароль")
+      label(for="passwordRepeat") Повторите пароль:
+      input(id="repeat-pass-inpt" type="text" name="passwordRepeat" placeholder="Повторно ведите пароль")
+      button(id="register-btn") Зарегистрироваться      

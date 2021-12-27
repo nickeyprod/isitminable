@@ -1,0 +1,31 @@
+extends ./../layout
+
+
+block head 
+  meta(name="description" content="Вход в аккаунт. IsItMinable.com | Инструкции по майнингу криптовалют.")
+  link(href="/css/main.css" rel="stylesheet")
+  link(href="/css/register/login.css" rel="stylesheet")
+  script(src="/js/index.js")
+  script(src="/js/register/login.js")
+
+block content
+  .main-content
+    h2 Вход в аккаунт
+    .login-fields
+      label(for="nickEmail") Никнейм или Email:
+      input(id="nick-email-inpt" type="text" name="nickEmail" placeholder="Введите ваш никнейм или email-адрес")
+      label(for="password") Пароль:
+      input(id="password-inpt" type="password" name="password" placeholder="Введите свой пароль")
+      div.show-pass
+        label(for="show-pass") Отображать пароль
+        input(name="show-pass" id="show-pass" type="checkbox")
+      div.btn-remember
+        button(id="login-btn") Войти в аккаунт
+        input(type="checkbox" name="remember" id="remember" checked) 
+        label(for="remember" title="Если отмечено, сессия будет действительна месяц, в противном случае сутки") Запомнить меня
+      hr(style="width: 100%")
+      div.no-account
+        h3 Нет аккаунта? [ 
+          a(href="/register") Зарегистрироваться
+          |  ]
+      a(href="/forgot-password").forgot-pass Я забыл(a) пароль

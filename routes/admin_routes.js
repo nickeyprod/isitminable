@@ -6,7 +6,7 @@ const Request = require("../models/Request");
 
 const mid = require("../middleware/middleware");
 
-router.get('/', (req, res, next) => {
+router.get('/', mid.isAdmin, (req, res, next) => {
     Project.find().exec((err, projects) => {
         if (err) {
             console.log("Error during searching for projects");
@@ -16,11 +16,11 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/add-project', (req, res) => {
+router.get('/add-project', mid.isAdmin, (req, res) => {
     res.render("admin/add_project", {title: "Добавить проект"});
 });
 
-router.post('/add-project', (req, res) => {
+router.post('/add-project', mid.isAdmin, (req, res) => {
 
     const { name, ticker, link, minable_via } = req.body;
 
@@ -40,7 +40,7 @@ router.post('/add-project', (req, res) => {
     });
 });
 
-router.get('/edit-project', (req, res, next) => {
+router.get('/edit-project', mid.isAdmin, (req, res, next) => {
     const _id = req.query.id;
     
     if (!_id) {
@@ -57,7 +57,7 @@ router.get('/edit-project', (req, res, next) => {
     });
 });
 
-router.post('/edit-project', (req, res) => {
+router.post('/edit-project', mid.isAdmin, (req, res) => {
 
     const { _id, name, ticker, link, minable_via } = req.body;
 
@@ -77,7 +77,7 @@ router.post('/edit-project', (req, res) => {
     });
 });
 
-router.get('/rm-hide-project', (req, res, next) => {
+router.get('/rm-hide-project', mid.isAdmin, (req, res, next) => {
     Project.find().exec((err, projects) => {
         if (err) {
             console.log("Error during searching for projects");
@@ -87,7 +87,7 @@ router.get('/rm-hide-project', (req, res, next) => {
     });
 });
 
-router.post('/rm-hide-project', (req, res) => {
+router.post('/rm-hide-project', mid.isAdmin, (req, res) => {
     const {_id, hidden, action } = req.body;
     if (!_id || _id == "") {
         return res.send({result: "ERROR", message: "Project ID is absent!"});
@@ -113,7 +113,7 @@ router.post('/rm-hide-project', (req, res) => {
     }
 });
 
-router.get('/requests', (req, res, next) => {
+router.get('/requests', mid.isAdmin, (req, res, next) => {
     Request.find().exec((err, requests) => {
         if (err) {
             console.log("Error during searching for requests");
@@ -123,7 +123,7 @@ router.get('/requests', (req, res, next) => {
     });
 });
 
-router.post('/requests', (req, res, next) => {
+router.post('/requests', mid.isAdmin, (req, res, next) => {
     const { _id } = req.body;
 
     if (!_id || _id == "") {

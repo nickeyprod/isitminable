@@ -4,5 +4,10 @@
   hr
   .main-menu 
     a(href="/") Главная
+    a(href="/crypto-safety") Криптобезопасность
     a(href="/request-to-add") Добавить проект
     a(href="/how-to-use") Как пользоваться?
+    if userId
+      a(href="/logout") Выйти
+    else
+      a(href="/login") Вход/Регистрация

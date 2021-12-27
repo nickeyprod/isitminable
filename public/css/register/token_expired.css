@@ -1,0 +1,6 @@
+/* CSS for token_expired.pug */
+
+.token-expired {
+    font-size: 1.4em;
+    width: 90%;
+}

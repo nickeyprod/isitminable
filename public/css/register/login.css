@@ -1,0 +1,46 @@
+.login-fields {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.login-fields input {
+    font-size: 1em;
+    padding: 2px 10px;
+}
+
+.login-fields label {
+    margin: 10px 2px 4px;
+    font-weight: bold;
+}
+
+.login-fields button {
+    margin-top: 20px;
+    width: fit-content;
+    padding: 4px 10px;
+    margin-right: 20px;
+}
+
+.show-pass label,
+.btn-remember label {
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+.show-pass {
+    text-align: right;
+}
+
+.show-pass input,
+.btn-remember input {
+    transform: scale(1.1);
+}
+
+.show-pass,
+.btn-remember {
+    margin: 4px 6px 0px;
+}
+
+.forgot-pass {
+    font-size: 1.1em;
+}
