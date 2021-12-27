@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const { Schema } = mongoose;
 const { v4: uuidv4 } = require('uuid');
-const mailBox = require("../custom/modules");
+const mailBox = require("../custom/mailer");
 
 const UserSchema = new Schema({
   nickname:  { type: String, unique: true, required: true }, // String is shorthand for {type: String}
