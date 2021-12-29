@@ -54,7 +54,7 @@ window.onload = () => {
             pLink.className = "p-link";
 
             pLogo.className = "project-logo";
-            pLogo.src = "/imgs/" + results[i].name + "_" + results[i].ticker + ".png"
+            pLogo.src = "/imgs/" + results[i].name + ".png"
 
             a.href = `/how-to-mine?coin=${results[i].name}`;
             a.title = `Узнать как майнить ${results[i].name}`;
