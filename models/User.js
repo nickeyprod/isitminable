@@ -6,7 +6,7 @@ const mailBox = require("../custom/mailer");
 
 const UserSchema = new Schema({
   nickname:  { type: String, unique: true, required: true }, // String is shorthand for {type: String}
-  email: { type: String, required: true },
+  email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
   firstName: String,
   lastName: String,

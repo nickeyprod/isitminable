@@ -41,6 +41,7 @@ router.post('/login',  (req, res) => {
             return res.send({ result: "Wrong credentials", message: "Check login or password" });
         } else if (result == true) {
             req.session.userId = userId;
+            req.session.admin = user.admin;
             if (remember === false ) {
                 req.session.maxAge = 1000 * 60 * 60 * 24;
             }
@@ -80,6 +81,13 @@ router.post('/register', (req, res)=> {
         password
     }, (err, user) => {
         if (err) {
+            if (err.code == 11000) {
+                if (err.message.includes("nickname")) {
+                    return res.send({ result: "ERROR", message: "DUP_NICKNAME" });
+                } else if (err.message.includes("email")) {
+                    return res.send({ result: "ERROR", message: "DUP_EMAIL" });
+                }
+            }
             console.log("Error during creating new user");
             return res.send({ result: "ERROR", message: err.message });
         }

@@ -37,7 +37,13 @@ window.onload = () => {
         const resp = await fetchDataFrom("/register", "POST", regData);
 
         if (resp.result == "ERROR") {
-            window.alert("Сервер вернул ошибку: " + resp.message);
+            if (resp.message == "DUP_NICKNAME") {
+                window.alert("Введенный вами никнейм уже занят.");
+            } else if (resp.message == "DUP_EMAIL") {
+                window.alert("Данный email-адрес уже зарегистрирован на сайте.");
+            } else {
+                window.alert("Сервер вернул ошибку: " + resp.message);
+            }
             registerBtn.removeAttribute("disabled");
             return;
         } else if (resp.result == "OK") {
