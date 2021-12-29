@@ -12,6 +12,11 @@ html {
     font-family: 'Play', sans-serif;
 }
 
+.mining-instructions img {
+    width: 80px;
+    height: 80px;
+}
+
 .mining-header {
     color: rgb(44, 43, 43);
 }
