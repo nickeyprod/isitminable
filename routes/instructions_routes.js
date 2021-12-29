@@ -1,9 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
     const coin = req.query.coin.toString().toLowerCase();
-    res.render(`instructions/${coin}`, {title: `Майнинг ${coin[0].toUpperCase() + coin.substring(1, coin.length)}`});
+    try {
+        res.render(`instructions/${coin}`, {title: `Майнинг ${coin[0].toUpperCase() + coin.substring(1, coin.length)}`});
+    } catch (err) {
+        next(err);
+    }
 });
   
 
