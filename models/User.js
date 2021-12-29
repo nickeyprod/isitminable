@@ -77,7 +77,7 @@ UserSchema.statics.logIn = function logIn (emailOrNick, pass, cb) {
         console.log("Error during comparing password!");
         return cb(err);
       }
-      return cb(null, result, user._id);
+      return cb(null, result, user._id, user.admin);
     });
   });
 };

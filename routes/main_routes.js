@@ -32,7 +32,7 @@ router.post('/login',  (req, res) => {
         return res.send({ result: "ERROR", message: "Password is absent!" });
     } 
 
-    User.logIn(emailOrNick, password, (err, result, userId) => {
+    User.logIn(emailOrNick, password, (err, result, userId, admin) => {
         if (err) {
             return res.send({ result: "ERROR", message: err.message });
         }
@@ -41,7 +41,7 @@ router.post('/login',  (req, res) => {
             return res.send({ result: "Wrong credentials", message: "Check login or password" });
         } else if (result == true) {
             req.session.userId = userId;
-            req.session.admin = user.admin;
+            req.session.admin = (admin === true);
             if (remember === false ) {
                 req.session.maxAge = 1000 * 60 * 60 * 24;
             }
