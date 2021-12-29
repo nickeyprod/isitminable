@@ -74,6 +74,11 @@ app.use(function (req, res, next) {
 
 // catch error
 app.use((err, req, res, next) => {
+  err.code = 500;
+  
+  if (err.message.includes("Failed to lookup view")) {
+    err.message = "Невозможно найти HTML файл, который запросил сервер."
+  }
   res.render('error', {title: "Ошибка", error: err });
 });
 

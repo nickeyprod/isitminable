@@ -6,7 +6,11 @@ window.onload = () => {
     const passwordRepeat = document.getElementById("repeat-pass-inpt");
     const registerBtn = document.getElementById("register-btn");
 
-
+    window.onkeyup = (e) => {
+        if (e.keyCode == 13) {
+            registerBtn.click();
+        }
+    }
     registerBtn.onclick = async () => {
         if (!nickname.value || nickname.value == "") {
             window.alert("Чтобы продолжить, введите Никнейм.");

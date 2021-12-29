@@ -10,7 +10,7 @@ block head
 
 block content
   .main-content
-    - const trnsl = { "vcard": "Video Card", "cpu": "CPU", "ssd": "SSD" };
+    - const trnsl = { "vcard": "Video Card", "cpu": "CPU", "ssd": "SSD", "mob": "Mobile Phone" };
     .project-search 
       label(for="projectSearch") Поиск:
       span(style="float:right; font-weight:bold") Проектов в базе: #{projects.length}
@@ -27,7 +27,7 @@ block content
           if project.hidden != true
             .minable-project
               .p-name
-                img(class="project-logo" src="/imgs/" + project.name + "_" + project.ticker + ".png") 
+                img(class="project-logo" src="/imgs/" + project.name + ".png") 
                 a(href=`/how-to-mine?coin=${project.name}` title=`Узнать как майнить ${project.name}`)=project.name
               .p-ticker=project.ticker
               .p-mtype

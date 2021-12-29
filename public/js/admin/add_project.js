@@ -8,9 +8,11 @@ window.onload = () => {
     const vcard = document.getElementById("vcard-inpt");
     const cpu = document.getElementById("cpu-inpt");
     const ssd = document.getElementById("ssd-inpt");
+    const mob = document.getElementById("mob-inpt");
+
 
     const getMiningTypes = () => {
-        const miningTypeInpts = [ vcard, cpu, ssd ];
+        const miningTypeInpts = [ vcard, cpu, ssd, mob ];
         const miningTypes = [];
         for (let i = 0; i < miningTypeInpts.length; i++) {
             if (miningTypeInpts[i].checked) {

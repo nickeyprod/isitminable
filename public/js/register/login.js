@@ -5,6 +5,12 @@ window.onload = () => {
     const showPass = document.getElementById("show-pass");
     const remember = document.getElementById("remember");
 
+    window.onkeyup = (e) => {
+        if (e.keyCode == 13) {
+            loginBtn.click();
+        }
+    }
+
     showPass.onclick = () => {
         if (showPass.checked === true) {
             password.setAttribute("type", "text");

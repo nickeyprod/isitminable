@@ -17,13 +17,13 @@
 }
 
 .project-logo {
-    width: 21px;
-    height: 21px;
+    width: 24px;
+    height: 24px;
     margin-right: 12px;
 }
 
 .minable-project {
-    font-size: 1.4em;
+    font-size: 1.28em;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -35,7 +35,7 @@
 }
 
 .minable-project div {
-    display: inline-block;
+    display: flex;
     background-color: rgb(250, 255, 240);
     margin: 1px;
     padding: 6px 20px;
@@ -44,8 +44,17 @@
 }
 
 .p-mtype img {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+    transition: transform 0.2s;
+}
+
+.p-mtype img:hover {
+    transform: scale(1.2);
+} 
+
+.p-mtype img:not(:first-child) {
+    margin-left: 4px;
 }
 
 .p-link {

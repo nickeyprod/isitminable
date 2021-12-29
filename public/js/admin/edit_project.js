@@ -9,6 +9,8 @@ window.onload = () => {
     const vcard = document.getElementById("vcard-inpt");
     const cpu = document.getElementById("cpu-inpt");
     const ssd = document.getElementById("ssd-inpt");
+    const mob = document.getElementById("mob-inpt");
+
 
     for (let i = 0; i < miningTypes.length; i++) {
         if (miningTypes[i] == "vcard") {
@@ -19,6 +21,9 @@ window.onload = () => {
         }
         else if (miningTypes[i] == "ssd") {
             ssd.checked = true;
+        }
+        else if (miningTypes[i] == "mob") {
+            mob.checked = true;
         }
     }
 
